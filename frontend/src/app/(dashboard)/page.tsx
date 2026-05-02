@@ -5,7 +5,7 @@ import axios from "axios";
 import { useSession } from "@/lib/auth-client";
 import {
   AreaChart, Area, BarChart, Bar,
-  XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend
+  XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
 } from "recharts";
 
 interface UsageLog {

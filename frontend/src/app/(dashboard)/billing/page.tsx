@@ -18,6 +18,7 @@ interface BillingRecord {
 export default function BillingPage() {
   const [bills, setBills] = useState<BillingRecord[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   const { data: session } = useSession();
 
@@ -28,8 +29,9 @@ export default function BillingPage() {
       try {
         const res = await axios.get(`${BACKEND_URL}/api/billing?userId=${session.user.id}`);
         setBills(res.data);
-      } catch (error) {
-        console.error("Failed to fetch billing", error);
+      } catch (err) {
+        console.error("Auth error:", err);
+        setError("An unexpected error occurred");
       } finally {
         setLoading(false);
       }
@@ -48,7 +50,7 @@ export default function BillingPage() {
     <div className="space-y-6 max-w-6xl mx-auto">
       <div>
         <h2 className="text-2xl font-bold text-gray-800">Billing & Usage</h2>
-        <p className="text-gray-500">View your current month's usage and outstanding balances.</p>
+        <p className="text-gray-500">View your current month&apos;s usage and outstanding balances.</p>
       </div>
 
       {/* Summary Card */}

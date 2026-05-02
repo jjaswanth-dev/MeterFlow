@@ -36,7 +36,8 @@ export default function AuthPage() {
           router.refresh();
         }
       }
-    } catch (err: any) {
+    } catch (err) {
+      console.error("Auth error:", err);
       setError("An unexpected error occurred");
     } finally {
       setLoading(false);
