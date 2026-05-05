@@ -17,7 +17,9 @@ export default function DashboardLayout({
   const pathname = usePathname();
 
   useEffect(() => {
+    console.log("Dashboard Layout - Session Status:", { session: !!session, isPending });
     if (!isPending && !session) {
+      console.log("No session found, redirecting to /auth");
       router.push("/auth");
     }
   }, [session, isPending, router]);
