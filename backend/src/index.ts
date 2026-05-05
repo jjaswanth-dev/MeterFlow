@@ -14,6 +14,9 @@ import { calculateBilling } from './workers/billingWorker';
 const app = express();
 const PORT = process.env.PORT || 4000;
 
+// Enable trust proxy for secure cookies in deployment
+app.set('trust proxy', 1);
+
 // Connect to MongoDB
 connectDB();
 

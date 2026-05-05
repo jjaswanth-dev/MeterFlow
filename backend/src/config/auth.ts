@@ -13,4 +13,7 @@ export const auth = betterAuth({
   secret: process.env.BETTER_AUTH_SECRET || 'super_secret_key_for_better_auth_dev',
   baseURL: process.env.BASE_URL || 'http://localhost:4000',
   trustedOrigins: [process.env.FRONTEND_URL || 'http://localhost:3000'],
+  advanced: {
+    crossSiteCookies: true
+  }
 });
